@@ -1,5 +1,8 @@
 #! /usr/bin/env python3
 
+import os
+import sys
+import csv
 from lxml import etree
 
 def parseDidl(didl):
@@ -41,10 +44,33 @@ def parseDidl(didl):
     return resources
 
 
+def processDIDL(didl):
+
+    # Parse DIDL
+    urls = parseDidl(didl)
+
+    # Iterate over urls
+    for url in urls:
+        print(url)
+    
+    # TODO: output for each resource:
+    # - input URL (as read from DIDL)
+    # - output URL (redirection)
+    # - Content-Disposition header
+    # - Full http headers (maybe to separate file)
+
 def main():
-    didl = "./didl.xml"
-    resources = parseDidl(didl)
-    print(resources)
+
+    didls = ["./didl.xml"]
+
+    # Open output file and create CSV writer object
+    fileOut = "./out.csv"
+    fOut = open(fileOut, "ab")
+    csvOut = csv.writer(fOut, lineterminator='\n')
+
+    # Iterate over didl files
+    for didl in didls:
+        processDIDL(didl)
 
 if __name__ == "__main__":
     main()
