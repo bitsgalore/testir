@@ -4,6 +4,7 @@ import os
 import sys
 import csv
 from lxml import etree
+import urllib.request
 
 def parseDidl(didl):
     """Parse DIDL and return list of all resources"""
@@ -50,9 +51,25 @@ def processDIDL(didl):
     urls = parseDidl(didl)
 
     # Iterate over urls
-    for url in urls:
-        print(url)
-    
+    for inURL in urls:
+        try:
+            # Open URL location, response to file-like object 'response'                         
+            response = urllib.request.urlopen(inURL)
+
+            # Output URL (can be different from inURL in case of redirection)
+            outURL=response.geturl()
+
+            # HTTP headers
+            headers = response.info()
+
+            # Data (i.e. the actual object that is retrieved)
+            data = response.read()
+
+            contenDisposition = headers['Content-Disposition']
+
+        except urllib.error.HTTPError:
+            raise
+
     # TODO: output for each resource:
     # - input URL (as read from DIDL)
     # - output URL (redirection)
@@ -61,6 +78,7 @@ def processDIDL(didl):
 
 def main():
 
+    # Replace by input from input CSV
     didls = ["./didl.xml"]
 
     # Open output file and create CSV writer object
