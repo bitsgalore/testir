@@ -1,0 +1,11 @@
+HTTP/1.1 301 Moved Permanently
+Date: Thu, 21 Sep 2017 16:15:58 GMT
+Server: Apache-Coyote/1.1
+X-Cocoon-Version: 2.2.0
+location: /bitstream/handle/1874/86/bibliography.pdf;jsessionid=C16CB3C7918A92572D2F7DDE8576CDE4?sequence=31
+Content-Language: en-US
+Set-Cookie: JSESSIONID=C16CB3C7918A92572D2F7DDE8576CDE4; Path=/; HttpOnly
+Connection: close
+Transfer-Encoding: chunked
+Content-Type: application/pdf
+

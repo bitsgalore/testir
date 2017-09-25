@@ -1,0 +1,1 @@
+<didl:Resource mimeType="application/xml" ref="https://dspace.library.uu.nl/bitstream/1874/86/1/HFST3.PS"/>
