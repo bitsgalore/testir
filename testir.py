@@ -65,7 +65,11 @@ def processDIDL(didl):
             # Data (i.e. the actual object that is retrieved)
             data = response.read()
 
-            contenDisposition = headers['Content-Disposition']
+            # Content-Disposition header TODO add error trapping if this does not exist (KeyError?)
+            try:
+                contentDisposition = headers['Content-Disposition']
+            except KeyError:
+                contentDisposition = ""
 
         except urllib.error.HTTPError:
             raise
