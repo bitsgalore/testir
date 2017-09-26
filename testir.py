@@ -2,11 +2,12 @@
 
 import os
 import sys
+from io import StringIO
 import csv
 from lxml import etree
 import urllib.request
 
-def parseDidl(didl):
+def parseDidl(urlDidl):
     """Parse DIDL and return list of all resources"""
 
     # List for storing extracted resources
@@ -23,32 +24,36 @@ def parseDidl(didl):
               "didl": didl_ns,
               "dc": didl_combined_ns}
 
-    # Parse DIDL
+    # Parse DIDL data
     parser = etree.XMLParser()          
-    root = etree.parse(didl, parser)
+    root = etree.parse(urlDidl, parser)
 
-    # We're only interested in nl_didl_norm and its child elements  
-    DIDL = root.find('//ns:GetRecord/ns:record/ns:metadata/dc:nl_didl_combined/dc:nl_didl_norm/didl:DIDL', 
-                             namespaces=NSMAP)
+    # We're only interested in nl_didl_norm and its child elements
+    try:
+        DIDL = root.find('//ns:GetRecord/ns:record/ns:metadata/dc:nl_didl_combined/dc:nl_didl_norm/didl:DIDL', 
+                         namespaces=NSMAP)
 
-    # Get list of all didl:Resource elements
-    resourceElts = DIDL.xpath('//didl:Item/didl:Component/didl:Resource', namespaces=NSMAP)
+        # Get list of all didl:Resource elements
+        resourceElts = DIDL.xpath('//didl:Item/didl:Component/didl:Resource', namespaces=NSMAP)
 
-    # Iterate over Resource elements and get URLs from 'ref' attribute values 
-    for resourceElt in resourceElts:
-        try:
-            url = resourceElt.attrib['ref']
-            resources.append(url)
-        except KeyError:
-            pass
+        # Iterate over Resource elements and get URLs from 'ref' attribute values 
+        for resourceElt in resourceElts:
+            try:
+                url = resourceElt.attrib['ref']
+                resources.append(url)
+            except KeyError:
+                pass
+
+    except AttributeError:
+        pass
 
     return resources
 
 
-def processDIDL(didl, csvOut):
+def processDIDL(urlDidl, csvOut):
 
     # Parse DIDL
-    urls = parseDidl(didl)
+    urls = parseDidl(urlDidl)
 
     # Iterate over urls
     for inURL in urls:
@@ -66,15 +71,13 @@ def processDIDL(didl, csvOut):
             data = response.read()
 
             # Content-Disposition header
-            try:
-                contentDisposition = headers['Content-Disposition']
-            except KeyError:
+            contentDisposition = headers['Content-Disposition']
+            if not contentDisposition: 
                 contentDisposition = "n/a"
                 
             # Content-Type header
-            try:
-                contentType = headers['Content-Type']
-            except KeyError:
+            contentType = headers['Content-Type']
+            if not contentType:
                 contentType = "n/a"
 
         except urllib.error.HTTPError:
@@ -85,25 +88,35 @@ def processDIDL(didl, csvOut):
         # Write record to output file
         csvOut.writerow([inURL,outURL,contentDisposition, contentType])
 
-    # TODO: include full http headers (maybe to separate file)
 
 def main():
 
-    # Replace by input from input CSV
-    didls = ["./didlWUR.xml"]
+    # CLI I/O
+    if len(sys.argv) != 3:
+        print("USAGE: testir.py inputFile outputFile")
+        sys.exit()
 
-    # Open output file and create CSV writer object
-    fileOut = "./out.csv"
+    # Open input file (one DIDL link per line)
+    fileIn = sys.argv[1]
+    fIn = open(fileIn, "r", encoding="utf-8")
+    # Content to list (each item represents 1 DIDL URL)
+    didls = fIn.read().splitlines()
+    fIn.close()
+
+     # Open output file and create CSV writer object
+    fileOut = sys.argv[2]
     fOut = open(fileOut, "w", encoding="utf-8")
     csvOut = csv.writer(fOut, lineterminator='\n')
     
     # Write header line to output file
-    csvOut.writerow(["URLIn","URLout","Content-Disposition", "Content-Type"])
+    csvOut.writerow(["URLIn","URLOut","Content-Disposition", "Content-Type"])
 
     # Iterate over didl files
     for didl in didls:
-        processDIDL(didl,csvOut)
+        if didl != "":
+            processDIDL(didl,csvOut)
 
+    # Close output file
     fOut.close()
 
 if __name__ == "__main__":

@@ -1,9 +1,0 @@
-HTTP/1.1 200 OK
-Date: Tue, 26 Sep 2017 10:33:31 GMT
-Server: Apache/2.4.7 (Ubuntu)
-Set-cookie: WebQueryDatabase=T58nN0epr0557EGGIRWWdjuw5::BJLLNWbbiozzz9AKPPRZbbdmrry3DDDOUeGsv/Cp; expires=Tue, 26 Sep 2017 10:48:31 GMT; domain=.wur.nl; path=/;
-Set-cookie: WebQueryUser=; expires=Wed, 27 Mar 2013 07:15:00 GMT; domain=.wur.nl; path=/;
-Vary: Accept-Encoding
-Transfer-Encoding: chunked
-Content-Type: text/html; charset=utf-8
-
