@@ -45,7 +45,7 @@ def parseDidl(didl):
     return resources
 
 
-def processDIDL(didl):
+def processDIDL(didl, csvOut):
 
     # Parse DIDL
     urls = parseDidl(didl)
@@ -65,34 +65,46 @@ def processDIDL(didl):
             # Data (i.e. the actual object that is retrieved)
             data = response.read()
 
-            # Content-Disposition header TODO add error trapping if this does not exist (KeyError?)
+            # Content-Disposition header
             try:
                 contentDisposition = headers['Content-Disposition']
             except KeyError:
-                contentDisposition = ""
+                contentDisposition = "n/a"
+                
+            # Content-Type header
+            try:
+                contentType = headers['Content-Type']
+            except KeyError:
+                contentType = "n/a"
 
         except urllib.error.HTTPError:
-            raise
+            outURL = "n/a"
+            contentDisposition = "n/a"
+            contentType = "n/a"
 
-    # TODO: output for each resource:
-    # - input URL (as read from DIDL)
-    # - output URL (redirection)
-    # - Content-Disposition header
-    # - Full http headers (maybe to separate file)
+        # Write record to output file
+        csvOut.writerow([inURL,outURL,contentDisposition, contentType])
+
+    # TODO: include full http headers (maybe to separate file)
 
 def main():
 
     # Replace by input from input CSV
-    didls = ["./didl.xml"]
+    didls = ["./didlWUR.xml"]
 
     # Open output file and create CSV writer object
     fileOut = "./out.csv"
-    fOut = open(fileOut, "ab")
+    fOut = open(fileOut, "w", encoding="utf-8")
     csvOut = csv.writer(fOut, lineterminator='\n')
+    
+    # Write header line to output file
+    csvOut.writerow(["URLIn","URLout","Content-Disposition", "Content-Type"])
 
     # Iterate over didl files
     for didl in didls:
-        processDIDL(didl)
+        processDIDL(didl,csvOut)
+
+    fOut.close()
 
 if __name__ == "__main__":
     main()

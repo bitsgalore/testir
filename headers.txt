@@ -1,11 +1,9 @@
-HTTP/1.1 301 Moved Permanently
-Date: Thu, 21 Sep 2017 16:15:58 GMT
-Server: Apache-Coyote/1.1
-X-Cocoon-Version: 2.2.0
-location: /bitstream/handle/1874/86/bibliography.pdf;jsessionid=C16CB3C7918A92572D2F7DDE8576CDE4?sequence=31
-Content-Language: en-US
-Set-Cookie: JSESSIONID=C16CB3C7918A92572D2F7DDE8576CDE4; Path=/; HttpOnly
-Connection: close
+HTTP/1.1 200 OK
+Date: Tue, 26 Sep 2017 10:33:31 GMT
+Server: Apache/2.4.7 (Ubuntu)
+Set-cookie: WebQueryDatabase=T58nN0epr0557EGGIRWWdjuw5::BJLLNWbbiozzz9AKPPRZbbdmrry3DDDOUeGsv/Cp; expires=Tue, 26 Sep 2017 10:48:31 GMT; domain=.wur.nl; path=/;
+Set-cookie: WebQueryUser=; expires=Wed, 27 Mar 2013 07:15:00 GMT; domain=.wur.nl; path=/;
+Vary: Accept-Encoding
 Transfer-Encoding: chunked
-Content-Type: application/pdf
+Content-Type: text/html; charset=utf-8
 
