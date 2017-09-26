@@ -56,7 +56,7 @@ def parseDidl(urlDidl):
                     except IndexError:
                         pass
 
-    except AttributeError:
+    except IndexError:
         pass
 
     return resources

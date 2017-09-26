@@ -1,2 +1,0 @@
-http://oai.gharvester.dans.knaw.nl/?verb=GetRecord&metadataPrefix=nl_didl_combined&identifier=uu:oai:dspace.library.uu.nl:1874/86
-
