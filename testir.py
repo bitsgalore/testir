@@ -18,11 +18,13 @@ def parseDidl(urlDidl):
     didl_ns = 'urn:mpeg:mpeg21:2002:02-DIDL-NS'
     didl_combined_ns = 'http://gh.kb-dans.nl/combined/v0.9/'
     xsi_ns = 'http://www.w3.org/2001/XMLSchema-instance/'
+    rdf_ns = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'
 
     NSMAP =  {"ns": oai_pmh_ns,
               "xsi": xsi_ns,
               "didl": didl_ns,
-              "dc": didl_combined_ns}
+              "dc": didl_combined_ns,
+              "rdf": rdf_ns}
 
     # Parse DIDL data
     parser = etree.XMLParser()          
@@ -30,19 +32,29 @@ def parseDidl(urlDidl):
 
     # We're only interested in nl_didl_norm and its child elements
     try:
-        DIDL = root.find('//ns:GetRecord/ns:record/ns:metadata/dc:nl_didl_combined/dc:nl_didl_norm/didl:DIDL', 
-                         namespaces=NSMAP)
+        DIDL = root.xpath('//ns:GetRecord/ns:record/ns:metadata/dc:nl_didl_combined/dc:nl_didl_norm/didl:DIDL', 
+                         namespaces=NSMAP)[0]
+            
+        # Get list of all didl:Item elements
+        itemElts = DIDL.xpath('.//didl:Item', namespaces=NSMAP)
 
-        # Get list of all didl:Resource elements
-        resourceElts = DIDL.xpath('//didl:Item/didl:Component/didl:Resource', namespaces=NSMAP)
+        for itemElt in itemElts:
+            typeElt = itemElt.xpath('.//didl:Descriptor/didl:Statement/rdf:type', namespaces=NSMAP)[0]
+            resourceType = typeElt.xpath('./@rdf:resource', namespaces=NSMAP)[0]
+            
+            # Only analyse object files, and ignore human start pages
+            if resourceType == 'info:eu-repo/semantics/objectFile':
+                # Get list of all didl:Resource elements
+                resourceElts = itemElt.xpath('.//didl:Component/didl:Resource', namespaces=NSMAP)
 
-        # Iterate over Resource elements and get URLs from 'ref' attribute values 
-        for resourceElt in resourceElts:
-            try:
-                url = resourceElt.attrib['ref']
-                resources.append(url)
-            except KeyError:
-                pass
+                # Iterate over Resource elements and get URLs from 'ref' attribute values 
+                for resourceElt in resourceElts:
+                    try:
+                        url = resourceElt.xpath('./@ref')[0]
+                        #url = resourceElt.attrib['ref']
+                        resources.append(url)
+                    except IndexError:
+                        pass
 
     except AttributeError:
         pass
@@ -51,10 +63,11 @@ def parseDidl(urlDidl):
 
 
 def processDIDL(urlDidl, csvOut):
+    """Process one DIDL and write results to csvOut"""
 
     # Parse DIDL
     urls = parseDidl(urlDidl)
-
+    
     # Iterate over urls
     for inURL in urls:
         try:
