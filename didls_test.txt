@@ -1,0 +1,14 @@
+http://oai.gharvester.dans.knaw.nl/?verb=GetRecord&metadataPrefix=nl_didl_combined&identifier=uu:oai:dspace.library.uu.nl:1874/1097
+http://oai.gharvester.dans.knaw.nl/?verb=GetRecord&metadataPrefix=nl_didl_combined&identifier=ru:oai:repository.ubn.ru.nl:2066/13803
+http://oai.gharvester.dans.knaw.nl/?verb=GetRecord&metadataPrefix=nl_didl_combined&identifier=rug:oai:pure.rug.nl:publications/8d20e0cf-5a9d-4727-8368-8bd266665fa0
+http://oai.gharvester.dans.knaw.nl/?verb=GetRecord&metadataPrefix=nl_didl_combined&identifier=tud:oai:tudelft.nl:uuid:00a2a9f9-8530-42d9-80bd-9e0c09571907
+http://oai.gharvester.dans.knaw.nl/?verb=GetRecord&metadataPrefix=nl_didl_combined&identifier=ul:oai:openaccess.leidenuniv.nl:1887/512
+http://oai.gharvester.dans.knaw.nl/?verb=GetRecord&metadataPrefix=nl_didl_combined&identifier=um:oai:cris.maastrichtuniversity.nl:publications/c422d880-06d8-4fba-91f6-42c162f93c02
+http://oai.gharvester.dans.knaw.nl/?verb=GetRecord&metadataPrefix=nl_didl_combined&identifier=ut:oai:doc.utwente.nl:1346
+http://oai.gharvester.dans.knaw.nl/?verb=GetRecord&metadataPrefix=nl_didl_combined&identifier=uva:oai:dare.uva.nl:publications/246a1742-c6d9-43fd-a671-2425a3aecd8e
+http://oai.gharvester.dans.knaw.nl/?verb=GetRecord&metadataPrefix=nl_didl_combined&identifier=uvt:oai:tilburguniversity.edu:publications/38cda5b2-c993-414e-92e7-1e277f165d59
+http://oai.gharvester.dans.knaw.nl/?verb=GetRecord&metadataPrefix=nl_didl_combined&identifier=wur:oai:library.wur.nl:wurpubs/510950
+http://oai.gharvester.dans.knaw.nl/?verb=GetRecord&metadataPrefix=nl_didl_combined&identifier=eur:oai:repub.eur.nl:16691
+http://oai.gharvester.dans.knaw.nl/?verb=GetRecord&metadataPrefix=nl_didl_combined&identifier=eur:oai:repub.eur.nl:52115
+http://oai.gharvester.dans.knaw.nl/?verb=GetRecord&metadataPrefix=nl_didl_combined&identifier=tue:oai:library.tue.nl:1067
+

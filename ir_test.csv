@@ -1,0 +1,25 @@
+URLIn,httpStatus,URLOut,Content-Disposition,Content-Type
+https://dspace.library.uu.nl/bitstream/1874/1097/1/M0112.pdf,200,https://dspace.library.uu.nl/bitstream/handle/1874/1097/M0112.pdf;jsessionid=B48EBA7D5B2CA38C9F7CA8F6E7FB1E50?sequence=1,n/a,application/pdf;charset=ISO-8859-1
+http://repository.ubn.ru.nl/bitstream/handle/2066/13803/13803.pdf,200,http://repository.ubn.ru.nl/password-login;jsessionid=44585B18239D35E288F2EBD6667BBD62,n/a,text/html;charset=utf-8
+https://pure.rug.nl/ws/files/28472186/effectunpolarized.pdf,200,https://pure.rug.nl/ws/files/28472186/effectunpolarized.pdf,n/a,application/pdf
+http://repository.tudelft.nl/assets/uuid%3A00a2a9f9-8530-42d9-80bd-9e0c09571907/as_manera_20030908.PDF,HTTP Error 404: Not Found,n/a,n/a,n/a
+https://openaccess.leidenuniv.nl/bitstream/1887/512/12/Stellingen.pdf,200,https://openaccess.leidenuniv.nl/bitstream/handle/1887/512/Stellingen.pdf;jsessionid=3A5DBCF164E633DDC56B0001E71C012B?sequence=12,n/a,application/pdf
+https://openaccess.leidenuniv.nl/bitstream/1887/512/15/Messineo.pdf,200,https://openaccess.leidenuniv.nl/bitstream/handle/1887/512/Messineo.pdf;jsessionid=7E35AFA008E1975559CC56EBD74C0CF1?sequence=15,n/a,application/pdf
+https://openaccess.leidenuniv.nl/bitstream/1887/512/16/nawoord.pdf,200,https://openaccess.leidenuniv.nl/bitstream/handle/1887/512/nawoord.pdf;jsessionid=60DC633C9342540BC322E2D203E3109A?sequence=16,n/a,application/pdf
+https://openaccess.leidenuniv.nl/bitstream/1887/512/17/cv.pdf,200,https://openaccess.leidenuniv.nl/bitstream/handle/1887/512/cv.pdf;jsessionid=987720BB2B60D44219FB5C39D2F0B6AE?sequence=17,n/a,application/pdf
+https://openaccess.leidenuniv.nl/bitstream/1887/512/18/samenvatting.pdf,200,https://openaccess.leidenuniv.nl/bitstream/handle/1887/512/samenvatting.pdf;jsessionid=F62218A22BB33C3CF71760D69A181A43?sequence=18,n/a,application/pdf
+https://openaccess.leidenuniv.nl/bitstream/1887/512/19/07.pdf,200,https://openaccess.leidenuniv.nl/bitstream/handle/1887/512/07.pdf;jsessionid=3DD6B684B9218451632E4C7E5F23FC66?sequence=19,n/a,application/pdf
+https://openaccess.leidenuniv.nl/bitstream/1887/512/20/06.pdf,200,https://openaccess.leidenuniv.nl/bitstream/handle/1887/512/06.pdf;jsessionid=65B842440FEC1B7644FBB271D611B4BA?sequence=20,n/a,application/pdf
+https://openaccess.leidenuniv.nl/bitstream/1887/512/21/05.pdf,200,https://openaccess.leidenuniv.nl/bitstream/handle/1887/512/05.pdf;jsessionid=D4BC7A59D1F1E7D7EC9309416E1C7E32?sequence=21,n/a,application/pdf
+https://openaccess.leidenuniv.nl/bitstream/1887/512/22/04.pdf,200,https://openaccess.leidenuniv.nl/bitstream/handle/1887/512/04.pdf;jsessionid=0431B6FD6AEA7259C1B05A97993C456C?sequence=22,n/a,application/pdf
+https://openaccess.leidenuniv.nl/bitstream/1887/512/23/03.pdf,200,https://openaccess.leidenuniv.nl/bitstream/handle/1887/512/03.pdf;jsessionid=E245C99A02F7C9C49DD151F57F0778B9?sequence=23,n/a,application/pdf
+https://openaccess.leidenuniv.nl/bitstream/1887/512/24/02.pdf,200,https://openaccess.leidenuniv.nl/bitstream/handle/1887/512/02.pdf;jsessionid=E1379D63DB868ECC755EC39A263900E8?sequence=24,n/a,application/pdf
+https://openaccess.leidenuniv.nl/bitstream/1887/512/25/01.pdf,200,https://openaccess.leidenuniv.nl/bitstream/handle/1887/512/01.pdf;jsessionid=B361F440826EE5D43A6ED728C55F725F?sequence=25,n/a,application/pdf
+https://openaccess.leidenuniv.nl/bitstream/1887/512/26/front.pdf,200,https://openaccess.leidenuniv.nl/bitstream/handle/1887/512/front.pdf;jsessionid=6B9DB166024E5861FA83D1532318B5F3?sequence=26,n/a,application/pdf
+https://openaccess.leidenuniv.nl/bitstream/1887/512/27/cover2.pdf,200,https://openaccess.leidenuniv.nl/bitstream/handle/1887/512/cover2.pdf;jsessionid=D3BDBFE378A43D74BD6204A6EBFF8993?sequence=27,n/a,application/pdf
+https://cris.maastrichtuniversity.nl/ws/files/517281/guid-1d7ed3e6-7b2a-4a90-8c08-002a6461ee36-ASSET1.0,HTTP Error 401: Unauthorized,n/a,n/a,n/a
+https://pure.uva.nl/ws/files/711034/173801_Leftover_Space_Invisibility_and_Everyday.pdf,200,https://pure.uva.nl/ws/files/711034/173801_Leftover_Space_Invisibility_and_Everyday.pdf,n/a,application/pdf
+https://pure.uvt.nl/ws/files/150219/LEVENEND.PDF,200,https://pure.uvt.nl/ws/files/150219/LEVENEND.PDF,n/a,application/pdf
+http://edepot.wur.nl/401646,200,http://edepot.wur.nl/401646,"inline; filename=""edepotlink_t58592b92_001.pdf""",application/pdf
+http://repub.eur.nl/pub/16691/R.W.M.%20Giard%2C%20Voorlopig%20deskundigenbericht.pdf,200,https://repub.eur.nl/pub/16691/R.W.M.%20Giard%2C%20Voorlopig%20deskundigenbericht.pdf,"attachment; filename=""R.W.M. Giard, Voorlopig deskundigenbericht.pdf""; filename*=utf-8''R.W.M.%20Giard%2C%20Voorlopig%20deskundigenbericht.pdf",application/pdf
+http://alexandria.tue.nl/repository/books/1067.pdf,200,http://alexandria.tue.nl/repository/books/1067.pdf,n/a,application/pdf

@@ -73,6 +73,9 @@ def processDIDL(urlDidl, csvOut):
         try:
             # Open URL location, response to file-like object 'response'                         
             response = urllib.request.urlopen(inURL)
+            
+            # Status code
+            httpStatus = str(response.getcode())
 
             # Output URL (can be different from inURL in case of redirection)
             outURL=response.geturl()
@@ -93,13 +96,20 @@ def processDIDL(urlDidl, csvOut):
             if not contentType:
                 contentType = "n/a"
 
-        except urllib.error.HTTPError:
+        except urllib.error.HTTPError as e:
+            httpStatus = str(e)
+            outURL = "n/a"
+            contentDisposition = "n/a"
+            contentType = "n/a"
+
+        except urllib.error.URLError as e:
+            httpStatus = str(e)
             outURL = "n/a"
             contentDisposition = "n/a"
             contentType = "n/a"
 
         # Write record to output file
-        csvOut.writerow([inURL,outURL,contentDisposition, contentType])
+        csvOut.writerow([inURL,httpStatus, outURL,contentDisposition, contentType])
 
 
 def main():
@@ -122,7 +132,7 @@ def main():
     csvOut = csv.writer(fOut, lineterminator='\n')
     
     # Write header line to output file
-    csvOut.writerow(["URLIn","URLOut","Content-Disposition", "Content-Type"])
+    csvOut.writerow(["URLIn", "httpStatus", "URLOut", "Content-Disposition", "Content-Type"])
 
     # Iterate over didl files
     for didl in didls:
